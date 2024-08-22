@@ -1,0 +1,43 @@
+﻿
+@model List<Entities.Models.Livre>
+@{
+    ViewBag.Title = "ListeLivresEmprunteur";
+    Layout = "~/Views/Shared/_LayoutLivre.cshtml";
+}
+
+<br />
+<h2>Liste des livres d'un emprunteur</h2>
+<br />
+
+<table class="table table-bordered border-primary">
+
+    <tr>
+        <th>ID</th>
+        <th>Auteur</th>
+        <th>Titre</th>
+        <th>Année</th>
+        <th>IdEmprunteur</th>
+        <th>Opération</th>
+
+    </tr>
+ 
+    @foreach (var livre in Model)
+    {
+        <tr>
+            <td>@livre.Id</td>
+            <td>@livre.Auteur</td>
+            <td>@livre.Titre</td>
+            <td>@livre.Annee</td>
+            <td>@livre.Emprunteur.Id</td>
+          
+            <td>
+                @Html.ActionLink("Modifier", "ModifLivLink2", new { id = livre.Id }, new { style = "font-size: 12px", @class = "btn btn-warning" })
+                @Html.ActionLink("Supprimer", "SuppLivLink2", new { id = livre.Id }, new { style = "font-size: 12px", @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

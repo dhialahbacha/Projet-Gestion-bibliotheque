@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewBag.Title = "ListeEmrpunteur";
+}
+
+<br />
+<h2>Liste des Emprunteurs</h2>
+<br />
+<table class="table table-bordered border-primary">
+
+    <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>AnnéeNaissance</th>
+        <th>Opération</th>
+
+    </tr>
+   
+    @foreach (var emprunteur in Model)
+    {
+        <tr>
+            <td>@emprunteur.Id</td>
+            <td>@emprunteur.Nom</td>
+            <td>@emprunteur.Prenom</td>
+            <td>@emprunteur.AnneeNaissance</td>
+           
+            <td>
+                @Html.ActionLink("Modif Emprunteur", "ModifEmpLink", new { id = emprunteur.Id }, new { style = "font-size: 12px", @class = "btn btn-warning font-size: 10px" })
+                @Html.ActionLink("Supp Emprunteur", "SuppEmpLink", new { id = emprunteur.Id }, new { style = "font-size: 12px", @class = "btn btn-danger font-size: 10px" })
+                @Html.ActionLink("Ajout Livre", "AjoutLivreLink", new { id = emprunteur.Id }, new { style = "font-size: 12px", @class = "btn btn-success font-size: 10px" })
+                @Html.ActionLink("Supp Livre", "SuppLivreLink", new { id = emprunteur.Id }, new { style = "font-size: 12px", @class = "btn btn-danger font-size: 10px" })
+            </td>
+        </tr>
+    }
+
+</table>
+
